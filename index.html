@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Central City RP - Compre Coins</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>🎮 Central City RP</h1>
+      <p>Compre Coins e Destaque-se no Servidor!</p>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="login.html">Login</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Compre Coins e Suba de Nível Rápido!</h2>
+      <p>Compre coins e tenha vantagens exclusivas: veículos VIP, casas luxuosas, skins especiais e muito mais!</p>
+      <a href="login.html" class="btn">Comprar Agora</a>
+    </div>
+  </section>
+
+  <section class="planos">
+    <div class="container">
+      <h2>Planos de Coins</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Starter</h3>
+          <p class="price">R$ 10,00</p>
+          <ul>
+            <li>1.000 Coins</li>
+            <li>1 Skin VIP</li>
+            <li>Entrega rápida</li>
+          </ul>
+          <button class="btn-card" data-plano="Starter" data-valor="10" onclick="openPixModal(this.dataset.plano, this.dataset.valor)">Comprar</button>
+        </div>
+
+        <div class="card destacado">
+          <h3>Pro</h3>
+          <p class="price">R$ 25,00</p>
+          <ul>
+            <li>3.000 Coins</li>
+            <li>3 Skins VIP</li>
+            <li>Veículo temporário</li>
+            <li>+500 Coins bônus</li>
+          </ul>
+          <button class="btn-card" data-plano="Pro" data-valor="25" onclick="openPixModal(this.dataset.plano, this.dataset.valor)">Comprar</button>
+        </div>
+
+        <div class="card">
+          <h3>Premium</h3>
+          <p class="price">R$ 50,00</p>
+          <ul>
+            <li>7.500 Coins</li>
+            <li>5 Skins VIP</li>
+            <li>Veículo permanente</li>
+            <li>Casa VIP</li>
+            <li>Duplo XP</li>
+          </ul>
+          <button class="btn-card" data-plano="Premium" data-valor="50" onclick="openPixModal(this.dataset.plano, this.dataset.valor)">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Pix -->
+  <div id="pix-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePixModal()">&times;</span>
+      <h2>Pagamento via Pix</h2>
+      <p><strong>Plano:</strong> <span id="pix-plano">Carregando...</span></p>
+      <p><strong>Valor:</strong> R$ <span id="pix-valor">0,00</span></p>
+      <img src="imagens/pix-qr.png" alt="QR Code Pix" class="qr-code" />
+      <p><strong>Chave Pix:</strong> <code>centralcityrp@pix.com.br</code></p>
+      <button class="btn" onclick="copyPix()">Copiar Chave</button>
+      <p style="margin-top: 15px; font-size: 0.9em; color: #ddd;">Após pagamento, coins entregues em até 10 minutos.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Central City RP. Todos os direitos reservados.</p>
+      <p>Site não oficial - Feito para venda de coins no SAMP.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

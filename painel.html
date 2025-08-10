@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel - Central City RP</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>🎮 Central City RP</h1>
+      <p>Bem-vindo ao seu painel</p>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html">Início</a>
+      <a href="painel.html">Meu Painel</a>
+      <a href="#" id="logout-link">Sair</a>
+    </div>
+  </nav>
+
+  <section class="painel">
+    <div class="container">
+      <h2>Olá, <span id="user-nick">Usuário</span>!</h2>
+      <p>Você está logado com sucesso. Confira seus benefícios:</p>
+
+      <div class="beneficios">
+        <div class="card">
+          <h3>Seus Coins</h3>
+          <p id="user-coins">0</p>
+        </div>
+        <div class="card">
+          <h3>Última Compra</h3>
+          <p id="user-plano">Nenhuma</p>
+        </div>
+      </div>
+
+      <h3 style="margin: 30px 0 15px;">Histórico de Compras</h3>
+      <ul id="compras-lista">
+        <li>Nenhuma compra realizada.</li>
+      </ul>
+
+      <button onclick="openPixModal('Starter', 10)" class="btn">Comprar Mais Coins</button>
+    </div>
+  </section>
+
+  <!-- Modal Pix -->
+  <div id="pix-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePixModal()">&times;</span>
+      <h2>Pagamento via Pix</h2>
+      <p><strong>Plano:</strong> <span id="pix-plano">Carregando...</span></p>
+      <p><strong>Valor:</strong> R$ <span id="pix-valor">0,00</span></p>
+      <img src="imagens/pix-qr.png" alt="QR Code Pix" class="qr-code" />
+      <p><strong>Chave Pix:</strong> <code>centralcityrp@pix.com.br</code></p>
+      <button class="btn" onclick="copyPix()">Copiar Chave</button>
+      <p style="margin-top: 15px; font-size: 0.9em; color: #ddd;">Após pagamento, coins entregues em até 10 minutos.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Central City RP. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Atualiza dados do usuário no painel
+    document.addEventListener("DOMContentLoaded", function () {
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (user) {
+        document.getElementById("user-nick").textContent = user.username;
+        document.getElementById("user-coins").textContent = user.coins || 0;
+        document.getElementById("user-plano").textContent = user.lastPlan || "Nenhuma";
+
+        const compras = user.compras || [];
+        const lista = document.getElementById("compras-lista");
+        lista.innerHTML = "";
+        if (compras.length === 0) {
+          lista.innerHTML = "<li>Nenhuma compra realizada.</li>";
+        } else {
+          compras.forEach(p => {
+            const li = document.createElement("li");
+            li.textContent = `${p.plano} - R$ ${p.valor} - ${p.data}`;
+            lista.appendChild(li);
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

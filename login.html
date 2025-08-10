@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Central City RP</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>🎮 Central City RP</h1>
+      <p>Área de Login</p>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="login.html">Login</a>
+    </div>
+  </nav>
+
+  <section class="login">
+    <div class="container">
+      <h2>Faça seu login</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Seu Nick no SAMP" required />
+        <input type="password" id="password" placeholder="Senha" required />
+        <button type="submit" class="btn">Entrar</button>
+      </form>
+      <p style="margin-top: 20px;">
+        <a href="#" onclick="resetPassword()">Esqueceu a senha?</a> | 
+        <a href="contato.html">Não tem conta?</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Central City RP. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
